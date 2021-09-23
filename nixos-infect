@@ -58,7 +58,7 @@ EOF
   cat > /etc/nixos/hardware-configuration.nix << EOF
 { modulesPath, ... }:
 {
-  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
+  imports = [ (modulesPath + "/profiles/all-hardware.nix") ];
 $bootcfg
   boot.initrd.kernelModules = [ "nvme" ];
   fileSystems."/" = { device = "$rootfsdev"; fsType = "$rootfstype"; };
