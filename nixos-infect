@@ -27,6 +27,7 @@ makeConf() {
     $NIXOS_IMPORT
   ];
 
+  fileSystems."/" = { device = "/dev/dda2"; fsType = "ext4"; };
   boot.cleanTmpDir = true;
   networking.hostName = "$(hostname)";
   networking.firewall.allowPing = true;
@@ -177,7 +178,7 @@ prepareEnv() {
   if isEFI; then
     esp="$(findESP)"
   else
-    for grubdev in /dev/vda /dev/sda /dev/nvme0n1 ; do [[ -e $grubdev ]] && break; done
+    for grubdev in /dev/vda /dev/sda /dev/nvme0n1 /dev/xvda ; do [[ -e $grubdev ]] && break; done
   fi
 
   # Retrieve root fs block device
