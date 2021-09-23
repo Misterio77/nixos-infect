@@ -60,7 +60,6 @@ EOF
 {
   imports = [ (modulesPath + "/profiles/all-hardware.nix") ];
 $bootcfg
-  boot.initrd.kernelModules = [ "nvme" ];
   fileSystems."/" = { device = "$rootfsdev"; fsType = "$rootfstype"; };
 }
 EOF
