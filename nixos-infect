@@ -276,7 +276,7 @@ infect() {
 
   export NIXOS_CONFIG=/etc/nixos/configuration.nix
   
-  sed -i 's/xvda2/vda2/g' /etc/nixos/hardware-configuration.nix
+  # sed -i 's/xvda2/vda2/g' /etc/nixos/hardware-configuration.nix
   
   nix-env --set \
     -I nixpkgs=$HOME/.nix-defexpr/channels/nixos \
