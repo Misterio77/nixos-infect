@@ -59,7 +59,7 @@ EOF
   cat > /etc/nixos/hardware-configuration.nix << EOF
 { modulesPath, ... }:
 {
-  imports = [ (modulesPath + "/profiles/all-hardware.nix") ];
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 $bootcfg
   fileSystems."/" = { device = "$rootfsdev"; fsType = "$rootfstype"; };
 }
