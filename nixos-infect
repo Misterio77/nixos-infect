@@ -27,6 +27,7 @@ makeConf() {
     $NIXOS_IMPORT
   ];
 
+  boot.kernelParams = [ "boot.shell_on_fail" ];
   boot.cleanTmpDir = true;
   networking.hostName = "$(hostname)";
   networking.firewall.allowPing = true;
@@ -274,9 +275,6 @@ infect() {
   nix-channel --update
 
   export NIXOS_CONFIG=/etc/nixos/configuration.nix
-  
-  # sed -i 's/xvda2/vda2/g' /etc/nixos/hardware-configuration.nix
-  
   nix-env --set \
     -I nixpkgs=$HOME/.nix-defexpr/channels/nixos \
     -f '<nixpkgs/nixos>' \
